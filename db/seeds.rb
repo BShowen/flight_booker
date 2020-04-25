@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require 'faker'
 Airport.destroy_all
 
 airports = "Aberdeen, SD 	USA 	ABR 
@@ -472,7 +472,7 @@ end
 
 
 # Create flights where departing_airport is a random airport and the arrival_airport is a random airport, but not the same as the departing_airport. 
-50.times do 
+1000.times do 
     airports = Airport.all.sample(2)
-    Flight.create(time_and_date:"08-08-2020 9:30", duration: rand(3..7), departure_airport: airports[0], arrival_airport: airports[1])
+    Flight.create(departure_date:"#{Faker::Date.between(from: Date.today, to: 1.year.from_now)}", duration: rand(3..7), flight_number: rand(2500..3500), departure_airport: airports[0], arrival_airport: airports[1])
 end
