@@ -1,0 +1,23 @@
+<h1>Flights</h1>
+
+
+<%= form_tag flights_path, method: :GET do %>
+    <%= label_tag    "flight_data[departure_date]", "Select a departure date" %>:
+    <%= select_tag "flight_data[departure_date]", options_for_select(@flight_dates) %></br>
+        
+    <%= label_tag    "flight_data[departure_airport_id]", "Select a departure airport" %>: 
+    <%= select_tag "flight_data[departure_airport_id]",   options_for_select(@airports) %></br>
+    
+    <%= label_tag    "flight_data[arrival_airport_id]", "Select an arrival airport" %>:
+    <%= select_tag "flight_data[arrival_airport_id]",   options_for_select(@airports) %></br>
+
+    <%= submit_tag "Search" %>
+<% end %>
+
+<% if @matching_flights %>
+    <% if @matching_flights.empty? %>
+        <p>No matching flights</p>
+    <% else %>
+        <p><%= @matching_flights[0].flight_number %><p>
+    <% end %>
+<% end %>
