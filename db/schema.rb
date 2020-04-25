@@ -13,7 +13,10 @@
 ActiveRecord::Schema.define(version: 2020_04_24_210642) do
 
   create_table "airports", force: :cascade do |t|
-    t.string "name"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
