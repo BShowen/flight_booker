@@ -11,8 +11,8 @@
         <% @matching_flights.each do |f| %></td>
             <tr>
                 <td style="text-align:center">
-                    <%= label_tag "flight_#{f.id}", "Select"%>
-                    <%=radio_button_tag :flight, f.id %>
+                    <%= label_tag "booking_flight_id_#{f.id}", "Select"%>
+                    <%=radio_button_tag "booking[flight_id]", f.id %>
                 </td>
                 <td style="text-align:center"><%= f.departure_airport.code %></td>
                 <td style="text-align:center"><%= f.arrival_airport.code %></td>
@@ -20,7 +20,9 @@
                 <td style="text-align:center"><%= f.duration %> hours</td>
                 <td style="text-align:center"><%= f.flight_number %></td>
             </tr>
-            <% end %>
-        </table>
+        <% end %>
+    </table>
+    <%= label_tag "booking_passengers", "Number of tickets" %>
+    <%= number_field_tag "booking[passengers]", nil, in: 1..3%>
     <%= submit_tag "Submit" %>
 <% end %>
