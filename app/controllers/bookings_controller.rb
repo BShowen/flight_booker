@@ -17,6 +17,10 @@ class BookingsController < ApplicationController
         redirect_to @booking
     end
 
+    def show
+        @booking = Booking.includes(:passengers, flight: [:departure_airport, :arrival_airport]).find_by(id: params_for_show[:id])
+    end
+
     private
     def booking_params
         params.require(:booking).permit(:passengers, :flight_id)
@@ -24,5 +28,9 @@ class BookingsController < ApplicationController
 
     def params_for_create
         params.require(:booking).permit(flight: [:id], passengers_attributes: [:name, :email])
+    end
+
+    def params_for_show
+        params.permit(:id)
     end
 end
