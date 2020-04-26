@@ -4,8 +4,8 @@ class CreateFlights < ActiveRecord::Migration[6.0]
       t.datetime :departure_date
       t.integer :duration
       t.integer :flight_number
-      t.integer :departure_airport_id
-      t.integer :arrival_airport_id
+      t.references :departure_airport
+      t.references :arrival_airport
 
       t.timestamps
     end

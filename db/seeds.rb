@@ -39,4 +39,4 @@ end
 
 airport_data = format_airport_data(AirportData::airports)
 create_airport_objects(airport_data, number_of_airports: 2)
-create_flight_objects number_of_flights: 1000 
+create_flight_objects number_of_flights: 100 
