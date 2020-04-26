@@ -5,5 +5,10 @@
 <% if @matching_flights.try(:any?) %>
     <%= render "search_results" %>
 <% else %>
-    <%= render "list_all_flights" %>
+
+    <%= will_paginate @flights %>
+    
+    <!-- render table with flight details -->
+    <%= render "shared/flight_details", flight_objs: @flights %>
+
 <% end %>

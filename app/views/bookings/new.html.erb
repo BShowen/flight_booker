@@ -3,32 +3,12 @@
 <%= form_with model: @booking, url: bookings_path do |booking_form| %>
 
     <%= booking_form.fields_for @flight do |flight_form| %>
-        <table>
-            <tr>
-                <th><%= flight_form.label :departure_date, "Departure date" %></th>
-                <th><%= flight_form.label "airport_code", "Departure from" %></th>
-                <th><%= flight_form.label :duration, "Flight duration" %></th>
-                <th> <%= flight_form.label :arrival_airport,  "Landing in" %></th>
-                <th><%= flight_form.label :id, "Flight_number" %></th>
-            </tr>
-            <tr>
-                <td><%= flight_form.date_field "departure_date", disabled: true %></br></td>
-                <td><%= flight_form.text_field "departure_airport", value: "#{@flight.departure_airport.code}", disabled: true %></br></td>
-                <td><%=flight_form.number_field "duration", disabled: true %></br></td>
-                <td><%= flight_form.text_field "arrival_airport", value: "#{@flight.arrival_airport.code}", disabled: true %></br></td>
-                <td><%= flight_form.number_field "id", readonly: true %></br></td>
-            </tr>    
-        </table>
+        <%= render "flight_data_table", form_helper: flight_form, flight_object: flight_form.object %>
     <% end %>
 
-    <%= booking_form.fields_for :passengers do |passenger_form| %>
-            <h3>Passenger information</h3>
-            <%= passenger_form.label :name, "Full name" %>
-            <%= passenger_form.text_field :name %></br>
-
-            <%= passenger_form.label :email %>
-            <%= passenger_form.email_field :email %></br>
-    <% end %>
-
+    <%= render "fields_for_passengers", form_obj: booking_form %>
+    
     <%= booking_form.submit %>
 <% end %>
+
+

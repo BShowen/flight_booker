@@ -1,0 +1,12 @@
+<%= form_obj.fields_for :passengers do |passenger_form| %>
+    <table style="width:10%">
+        <tr>
+            <th><%= passenger_form.label :name, "Full name" %></th>
+            <th><%= passenger_form.label :email %></th>
+        </tr>
+        <tr>
+            <td style="text-align:center"><%= passenger_form.text_field :name, placeholder: "Name"%></td>
+            <td style="text-align:center"><%= passenger_form.email_field :email, placeholder: "Email"%></td>
+        </tr>
+    </table>
+<% end %>

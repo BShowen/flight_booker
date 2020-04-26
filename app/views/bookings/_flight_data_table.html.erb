@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th><%=form_helper.label :departure_date, "Departure date" %></th>
+        <th><%=form_helper.label "airport_code", "Departure from" %></th>
+        <th><%=form_helper.label :duration, "Flight duration" %></th>
+        <th> <%=form_helper.label :arrival_airport,  "Landing in" %></th>
+        <th><%=form_helper.label :id, "Flight_number" %></th>
+    </tr>
+    <tr>
+        <td><%=form_helper.date_field "departure_date", disabled: true %></br></td>
+        <td><%=form_helper.text_field "departure_airport", value: "#{flight_object.departure_airport.code}", disabled: true %></br></td>
+        <td><%=form_helper.number_field "duration", disabled: true %></br></td>
+        <td><%=form_helper.text_field "arrival_airport", value: "#{flight_object.arrival_airport.code}", disabled: true %></br></td>
+        <td><%=form_helper.number_field "id", readonly: true %></br></td>
+    </tr>    
+</table>
