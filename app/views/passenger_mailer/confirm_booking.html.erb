@@ -1,0 +1,10 @@
+<h1>Booking confirmed</h1>
+
+<p>Thanks you for booking with Aerosplat!<p> 
+    
+<p>Click the link below to view your booking information</p>
+<p>You can copy and paste this url if the link in this email is not working: <%= booking_url(@booking.id) %></p>
+
+<h2><%= link_to "View booking" ,booking_url( @booking.id )%></h2>
+
+
