@@ -5,6 +5,8 @@ ruby '2.6.5'
 gem 'faker', '>=2.11.0'
 gem 'will_paginate', '~> 3.3.0'
 
+gem 'figaro', '>=1.1.1'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use sqlite3 as the database for Active Record
