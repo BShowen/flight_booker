@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
 
         #send confirmation email(s).
         @booking.passengers.pluck(:email).each do |email|
-            PassengerMailer.with(booking: @booking, email: email).confirm_booking.deliver_later
+            PassengerMailer.with(booking: @booking, email: email).confirm_booking.deliver_now
         end
         redirect_to @booking
     end
