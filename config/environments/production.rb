@@ -114,7 +114,7 @@ Rails.application.configure do
   # Settings to send emails using SendGrid.
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { host: 'aeropsplat.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'aerosplat.herokuapp.com', protocol: 'https'}
   config.action_mailer.smtp_settings = {
     :user_name => ENV['SENDGRID_USER_NAME'],
     :password => ENV['SENDGRID_PASSWORD'],
