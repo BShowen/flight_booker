@@ -116,7 +116,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: 'flight-bookings.herokuapp.com' }
   config.action_mailer.smtp_settings = {
-    :user_name => ENV['SENDGRID_USERNAME'],
+    :user_name => ENV['SENDGRID_USER_NAME'],
     :password => ENV['SENDGRID_PASSWORD'],
     :domain => 'heroku.com',
     :address => 'smtp.sendgrid.net',
